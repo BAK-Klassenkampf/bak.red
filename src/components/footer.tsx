@@ -2,7 +2,7 @@ import { FaInstagram, FaPaypal, FaTelegram, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className="grid grid-cols-3 bg-web-blue h-20 items-center">
+    <div className="grid grid-cols-1 md:grid-cols-3 bg-web-blue min-h-20 items-center">
       <div className=""></div>
       <div className="flex flex-row gap-3 mx-auto h-full p-3 text-cd-black justify-center items-center">
         <div className="bg-cd-white w-12 h-12 p-2">

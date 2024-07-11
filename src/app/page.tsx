@@ -13,7 +13,7 @@ export default function Home() {
           alt="Background image"
           width={1920}
           height={1080}
-          className="object-cover w-screen h-screen opacity-80"
+          className="object-cover w-screen supports-[height:100svh]:h-svh h-screen opacity-80"
         ></Image>
       </div>
       <h1 className="sr-only">BAK Klassenkampf</h1>
