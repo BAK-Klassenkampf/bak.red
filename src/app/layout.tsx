@@ -10,6 +10,23 @@ export const metadata: Metadata = {
   title: "BAK Klassenkampf",
   description:
     "Wir sind der BAK Klassenkampf! Ein marxistischer, internationalistischer, antiimperialistischer und revolutionärer Zusammenschluss in der Linksjugend ['solid] ☭",
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    url: "https://bak.red",
+    siteName: "BAK Klassenkampf",
+    images: [
+      {
+        url: "https://bak.red/og-image.jpg",
+        width: 800,
+        height: 418,
+        alt: "BAK Klassenkampf",
+      },
+    ],
+  },
+  icons: [
+    
+  ]
 };
 
 export default function RootLayout({
