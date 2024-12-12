@@ -1,7 +1,7 @@
-import { DefaultHeader } from "@/components/header";
-import AboutSection from "@/components/main-sections/about-section";
-import MerchSection from "@/components/main-sections/merch-section";
-import PostsSection from "@/components/main-sections/posts-section";
+import { DefaultHeader } from "@/app/(app)/components/header";
+import AboutSection from "@/app/(app)/components/main-sections/about-section";
+import MerchSection from "@/app/(app)/components/main-sections/merch-section";
+import PostsSection from "@/app/(app)/components/main-sections/posts-section";
 import Image from "next/image";
 
 export default function Home() {
