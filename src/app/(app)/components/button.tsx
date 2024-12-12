@@ -7,7 +7,11 @@ export default function Button(props: {
   onClick?: () => void;
   link?: string;
 }) {
-  function InternalButton() {
+  function InternalButton(props: {
+    className?: string;
+    onClick?: () => void;
+    text: string;
+  }) {
     return (
       <button
         onClick={props.onClick}
@@ -20,12 +24,13 @@ export default function Button(props: {
 
   return (
     <>
-      {props.link && (
-        <Link href={props.link} passHref>
-          <InternalButton />
+      {props.link ? (
+        <Link href={props.link} className={props.className} passHref>
+          <InternalButton {...props} className="" />
         </Link>
+      ) : (
+        <InternalButton {...props} />
       )}
-      <InternalButton />
     </>
   );
 }

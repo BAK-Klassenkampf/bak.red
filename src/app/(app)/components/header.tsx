@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -24,6 +25,8 @@ export function BigHeader() {
 }
 
 export function DefaultHeader() {
+  const pathname = usePathname();
+
   function HeaderLink(props: { text: string; href: string }) {
     return (
       <Link href={props.href} className="uppercase">
@@ -33,12 +36,30 @@ export function DefaultHeader() {
   }
 
   return (
-    <div className="sticky h-20 bg-web-blue text-cd-white text-xl sm:text-2xl md:text-4xl xl:text-6xl flex top-0">
-      <div className="container flex flex-row justify-between w-full m-auto px-10">
-        <HeaderLink text="Ziele" href="/ziele" />
-        <HeaderLink text="News" href="/news" />
-        <HeaderLink text="Merch" href="/merch" />
-        <HeaderLink text="Mach mit" href="/mitmachen" />
+    <div className="sticky h-20 justify-center bg-web-blue text-cd-white text-xl sm:text-2xl md:text-4xl xl:text-6xl top-0">
+      <div
+        className={clsx(
+          "container h-20  justify-center m-auto px-10 ",
+          pathname !== "/" && "grid grid-cols-5 gap-5"
+        )}
+      >
+        {pathname !== "/" && (
+          <Link href="/" className="max-h-14 w-fit my-auto col-span-1">
+            <Image
+              src={"/images/small-logo.png"}
+              alt="BAK Logo"
+              width={200}
+              height={200}
+              className="my-auto max-h-14 w-auto"
+            ></Image>
+          </Link>
+        )}
+        <div className=" grid grid-cols-2 grid-rows-2 md:flex md:flex-row justify-between w-full my-auto col-span-4">
+          <HeaderLink text="Ziele" href="/ziele" />
+          <HeaderLink text="News" href="/news" />
+          <HeaderLink text="Merch" href="/merch" />
+          <HeaderLink text="Mach mit" href="/mitmachen" />
+        </div>
       </div>
     </div>
   );

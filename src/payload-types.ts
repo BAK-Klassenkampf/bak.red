@@ -14,6 +14,7 @@ export interface Config {
     users: User;
     media: Media;
     'about-texts': AboutText;
+    merch: Merch;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -23,6 +24,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'about-texts': AboutTextsSelect<false> | AboutTextsSelect<true>;
+    merch: MerchSelect<false> | MerchSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -109,6 +111,20 @@ export interface AboutText {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merch".
+ */
+export interface Merch {
+  id: number;
+  name: string;
+  description?: string | null;
+  'donation-recommendation': number;
+  picture?: (number | null) | Media;
+  featured: boolean;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -125,6 +141,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'about-texts';
         value: number | AboutText;
+      } | null)
+    | ({
+        relationTo: 'merch';
+        value: number | Merch;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -209,6 +229,19 @@ export interface AboutTextsSelect<T extends boolean = true> {
   heading?: T;
   text?: T;
   weight?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merch_select".
+ */
+export interface MerchSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  'donation-recommendation'?: T;
+  picture?: T;
+  featured?: T;
   updatedAt?: T;
   createdAt?: T;
 }
