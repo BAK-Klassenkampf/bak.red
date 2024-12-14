@@ -5,21 +5,6 @@ import { getPayload } from "payload";
 import { Media } from "@/payload-types";
 import Link from "next/link";
 
-// const highlightedMerch = [
-//   {
-//     image: "/images/BAK_KK_FDJ.png",
-//     alt: "placeholder item",
-//   },
-//   {
-//     image: "/images/BAK_KK_FDJ.png",
-//     alt: "placeholder item",
-//   },
-//   {
-//     image: "/images/BAK_KK_FDJ.png",
-//     alt: "placeholder item",
-//   },
-// ];import { getPayload } from "payload";
-
 const payload = await getPayload({ config });
 
 export default async function MerchSection() {

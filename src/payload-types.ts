@@ -15,6 +15,8 @@ export interface Config {
     media: Media;
     'about-texts': AboutText;
     merch: Merch;
+    post: Post;
+    author: Author;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -25,6 +27,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     'about-texts': AboutTextsSelect<false> | AboutTextsSelect<true>;
     merch: MerchSelect<false> | MerchSelect<true>;
+    post: PostSelect<false> | PostSelect<true>;
+    author: AuthorSelect<false> | AuthorSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -125,6 +129,60 @@ export interface Merch {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "post".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  subtitle?: string | null;
+  author?: (number | null) | Author;
+  picture: number | Media;
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "author".
+ */
+export interface Author {
+  id: number;
+  name: string;
+  picture?: (number | null) | Media;
+  bio?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -145,6 +203,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'merch';
         value: number | Merch;
+      } | null)
+    | ({
+        relationTo: 'post';
+        value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'author';
+        value: number | Author;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -242,6 +308,30 @@ export interface MerchSelect<T extends boolean = true> {
   'donation-recommendation'?: T;
   picture?: T;
   featured?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "post_select".
+ */
+export interface PostSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  author?: T;
+  picture?: T;
+  text?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "author_select".
+ */
+export interface AuthorSelect<T extends boolean = true> {
+  name?: T;
+  picture?: T;
+  bio?: T;
   updatedAt?: T;
   createdAt?: T;
 }

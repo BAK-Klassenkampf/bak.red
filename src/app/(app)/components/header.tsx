@@ -54,9 +54,9 @@ export function DefaultHeader() {
             ></Image>
           </Link>
         )}
-        <div className=" grid grid-cols-2 grid-rows-2 md:flex md:flex-row justify-between w-full my-auto col-span-4">
+        <div className=" grid grid-cols-2 grid-rows-2 xl:flex xl:flex-row justify-between w-full my-auto col-span-4">
           <HeaderLink text="Ziele" href="/ziele" />
-          <HeaderLink text="News" href="/news" />
+          <HeaderLink text="Beiträge" href="/posts" />
           <HeaderLink text="Merch" href="/merch" />
           <HeaderLink text="Mach mit" href="/mitmachen" />
         </div>
