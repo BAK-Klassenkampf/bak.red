@@ -15,7 +15,7 @@ export default async function MerchPage() {
 
   return (
     <div className="bg-cd-white w-full h-full text-cd-black">
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto py-10 px-5">
         <h1 className="text-4xl md:text-6xl uppercase">Unser Merch</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 py-10">
           {merch.docs.map((item) => (
@@ -40,7 +40,6 @@ export default async function MerchPage() {
               <h2 className="text-2xl">
                 {item.name} - {item["donation-recommendation"]}€
               </h2>
-              <p className="text-lg">{item.description}</p>
             </Link>
           ))}
         </div>

@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-lt-installed="true">
-      <body className={clsx(gilroyBlack.className, "text-xl")}>
+      <body className={clsx(gilroyBlack.className, "text-xl min-h-full")}>
         <Header />
         {children}
         <Footer />
