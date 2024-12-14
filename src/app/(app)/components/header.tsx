@@ -58,7 +58,7 @@ export function DefaultHeader() {
           <HeaderLink text="Ziele" href="/ziele" />
           <HeaderLink text="Beiträge" href="/posts" />
           <HeaderLink text="Merch" href="/merch" />
-          <HeaderLink text="Mach mit" href="/mitmachen" />
+          <HeaderLink text="Mach mit" href="https://t.me/+6BhTnMMolsc3MmNi" />
         </div>
       </div>
     </div>
