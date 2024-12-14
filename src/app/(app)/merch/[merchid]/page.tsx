@@ -21,7 +21,7 @@ export default async function MerchPage({
   return (
     <div className="bg-cd-white w-full h-full text-cd-black">
       <div className="container mx-auto py-10">
-        <div className="grid md:grid-cols-2 grid-rows-2 gap-10 px-5 md:p-0 ">
+        <div className="grid md:grid-cols-2 grid-rows-2 md:grid-rows-1 gap-10 px-5 md:p-0 ">
           <Image
             src={(merch.picture && (merch.picture as Media).url) || "/"}
             alt={merch.picture ? (merch.picture as Media).alt : merch.name}
