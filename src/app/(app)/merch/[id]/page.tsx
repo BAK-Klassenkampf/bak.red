@@ -2,7 +2,6 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import Image from "next/image";
 import { Media } from "@/payload-types";
-import { FaInfoCircle } from "react-icons/fa";
 
 const payload = await getPayload({ config });
 
