@@ -13,6 +13,7 @@ import { AboutTexts } from "./collections/AboutTexts";
 import { Merch } from "./collections/Merch";
 import { Post } from "./collections/Post";
 import { Author } from "./collections/Author";
+import { Goal } from "./collections/Goal";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -24,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, AboutTexts, Merch, Post, Author],
+  collections: [Users, Media, AboutTexts, Merch, Post, Author, Goal],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

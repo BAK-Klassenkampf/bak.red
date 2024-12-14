@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     siteName: "BAK Klassenkampf",
     images: [
       {
-        url: "https://bak.red/og-image.jpg",
+        url: "https://bak.red/images/small-logo.png",
         width: 800,
-        height: 418,
+        height: 800,
         alt: "BAK Klassenkampf",
       },
     ],

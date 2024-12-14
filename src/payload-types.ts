@@ -17,6 +17,7 @@ export interface Config {
     merch: Merch;
     post: Post;
     author: Author;
+    goal: Goal;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -29,6 +30,7 @@ export interface Config {
     merch: MerchSelect<false> | MerchSelect<true>;
     post: PostSelect<false> | PostSelect<true>;
     author: AuthorSelect<false> | AuthorSelect<true>;
+    goal: GoalSelect<false> | GoalSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -183,6 +185,33 @@ export interface Author {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "goal".
+ */
+export interface Goal {
+  id: number;
+  title: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  picture?: (number | null) | Media;
+  weight: number;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -211,6 +240,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'author';
         value: number | Author;
+      } | null)
+    | ({
+        relationTo: 'goal';
+        value: number | Goal;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -332,6 +365,18 @@ export interface AuthorSelect<T extends boolean = true> {
   name?: T;
   picture?: T;
   bio?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "goal_select".
+ */
+export interface GoalSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  picture?: T;
+  weight?: T;
   updatedAt?: T;
   createdAt?: T;
 }
