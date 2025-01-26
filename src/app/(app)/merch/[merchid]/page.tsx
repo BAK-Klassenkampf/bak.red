@@ -5,6 +5,8 @@ import { Media } from "@/payload-types";
 
 const payload = await getPayload({ config });
 
+export const dynamic = "force-dynamic";
+
 export default async function MerchPage({
   params,
 }: {

@@ -3,6 +3,9 @@ import AboutSection from "@/app/(app)/components/main-sections/about-section";
 import MerchSection from "@/app/(app)/components/main-sections/merch-section";
 import PostsSection from "@/app/(app)/components/main-sections/posts-section";
 import Image from "next/image";
+import { Suspense } from "react";
+
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
@@ -22,10 +25,12 @@ export default function Home() {
           Atzig? Genau wie unser Merch!
         </p>
       </div>
-      <MerchSection />
-      <DefaultHeader />
-      <AboutSection />
-      <PostsSection />
+      <Suspense fallback={<noscript>Please enable Javascript</noscript>}>
+        <MerchSection />
+        <DefaultHeader />
+        <AboutSection />
+        <PostsSection />
+      </Suspense>
     </>
   );
 }

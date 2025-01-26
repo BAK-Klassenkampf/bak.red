@@ -4,6 +4,8 @@ import clsx from "clsx";
 
 const payload = await getPayload({ config });
 
+export const dynamic = "force-dynamic";
+
 export default async function AboutSection() {
   let aboutTexts = await payload.find({
     collection: "about-texts",

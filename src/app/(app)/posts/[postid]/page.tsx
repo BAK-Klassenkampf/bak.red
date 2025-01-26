@@ -6,6 +6,8 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 
 const payload = await getPayload({ config });
 
+export const dynamic = "force-dynamic";
+
 export default async function PostPage({
   params,
 }: {

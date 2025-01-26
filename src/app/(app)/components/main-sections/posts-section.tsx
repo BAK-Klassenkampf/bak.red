@@ -7,6 +7,8 @@ import Link from "next/link";
 
 const payload = await getPayload({ config });
 
+export const dynamic = "force-dynamic";
+
 export default async function PostsSection() {
   const highlitedPosts = await payload.find({
     collection: "post",
